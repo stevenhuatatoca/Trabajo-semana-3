@@ -1,0 +1,25 @@
+class ClimaSemanal:
+    def __init__(self):
+        self.temperaturas = []
+
+    def ingresar_temperaturas(self):
+        for i in range(7):  # 7 días de la semana
+            temp = float(input(f"Ingrese la temperatura del día {i+1}: "))
+            self.temperaturas.append(temp)
+
+    def calcular_promedio(self):
+        if len(self.temperaturas) == 0:
+            return 0
+        suma = sum(self.temperaturas)
+        promedio = suma / len(self.temperaturas)
+        return promedio
+
+    def mostrar_promedio(self):
+        promedio = self.calcular_promedio()
+        print(f"El promedio semanal de temperaturas es: {promedio:.2f}")
+
+# Ejecución del programa
+if __name__ == "__main__":
+    clima_semanal = ClimaSemanal()
+    clima_semanal.ingresar_temperaturas()
+    clima_semanal.mostrar_promedio()
